@@ -10,6 +10,7 @@ namespace Negocio.Modelos
 
 public class Propietario
 {
+    public static NumberFormatInfo nfi = new CultureInfo("en-US", false).NumberFormat;
     public int IdPropietario;
     public string Nombre;
     public char Sexo = 'M';
@@ -17,12 +18,8 @@ public class Propietario
     public override string ToString() => $"{Sexo} {Nombre}===> {IdPropietario}";
 
     internal static Propietario ParseRow(string row)
-        {
-            NumberFormatInfo nfi = new CultureInfo("en-US", false).NumberFormat;
-
+        {   
             var columns = row.Split(',');
-            //Id, Nombre, SX
-            //10, Luis, H
             return new Propietario
             {
                 Nombre = columns[1].Trim(),
