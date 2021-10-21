@@ -4,8 +4,6 @@ using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-
-
 namespace Servicios
 {
     using Negocio.Modelos;

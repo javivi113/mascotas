@@ -22,10 +22,12 @@ namespace Servicios
                 .Where(row => row.Length > 0)
                 .Select(p=>Propietario.ParseRow(p)).ToList();
         }
-        List<Mascota> IRepositorio.CargarMascotas() =>
-            File.ReadAllLines(mascotasFile)
+        List<Mascota> IRepositorio.CargarMascotas()
+        {
+            return File.ReadAllLines(mascotasFile)
                 .Skip(1)
                 .Where(row => row.Length > 0)
                 .Select(Mascota.ParseRow).ToList();
+        }
     }
 }
